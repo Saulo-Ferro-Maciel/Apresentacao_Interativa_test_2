@@ -1,0 +1,60 @@
+/* ================ JOGADOR - ELEFANTE ================ */
+#player {
+  position: absolute;
+  width: 120px;
+  height: 100px;
+  left: 0;
+  bottom: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  z-index: 15;
+  pointer-events: none;
+  font-size: 0;
+  border-radius: 0;
+  transition: background-image 0.1s ease-out;
+  filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.15));
+}
+
+#player:hover {
+  filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.25));
+}
+
+/* Remover animações antigas conflitantes */
+#player.girando-direita,
+#player.girando-esquerda,
+.player.girando-direita,
+.player.girando-esquerda {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Botão de desbloqueio (ON/OFF) */
+.unlock-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  user-select: none;
+  background: transparent; /* fundo removido */
+  border: none; /* sem borda por padrão */
+  padding: 0;
+}
+.unlock-button.on {
+  /* deixa imagem controlar a aparência */
+  background: transparent;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+.unlock-button.off {
+  background: transparent;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  opacity: 0.95;
+}
+
+.unlock-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}

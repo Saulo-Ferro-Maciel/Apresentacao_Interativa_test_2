@@ -1,0 +1,13 @@
+/* ================ ESTRELAS ================ */
+.estrela {
+  position: absolute;
+  font-size: 40px;
+  z-index: 20;
+  pointer-events: none;
+  animation: girarEstrela 1s linear infinite;
+}
+
+@keyframes girarEstrela {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

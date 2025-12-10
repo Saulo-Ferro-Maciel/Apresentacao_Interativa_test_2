@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apresentação Interativa com Jogo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="player.css">
+  <link rel="stylesheet" href="grass.css">
+  <link rel="stylesheet" href="stars.css">
+  <script defer type="module" src="./script.js"></script>
+</head>
+
+<body>
+  <div class="ground">
+    <div class="grass"></div>
+    <div class="dirt">
+      <div class="dirt-layer top"></div>
+      <div class="dirt-layer middle"></div>
+      <div class="dirt-layer bottom"></div>
+    </div>
+  </div>
+
+  <div class="camera" id="camera">
+    <div class="parallax-layer background" id="bg"></div>
+    <div class="parallax-layer middleground" id="mg"></div>
+
+    <div class="game-container" id="gameWorld">
+      <div class="player" id="player"></div>
+
+      <div class="section" data-grupo="A">
+        <div class="section-content">
+          🏁 BEM - VINDO
+          
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <div class="logo-square">
+              <img src="./logoPostre.png" alt="Logo PostreSQL" />
+            </div>
+            <p style="font-size: 18px; padding: 9px;">
+              <br>Obrigado por escolher o PostgreSQL!<br>
+              <br>Você acabou de tomar uma das decisões mais inteligentes para 2026.<br>
+              <br>O PostgreSQL é o <mark style="background-color: aliceblue; color: black;"> SGBD open source</mark> mais avançado do mundo.<br>
+              <br>Apple, Netflix, Instagram, Uber, Spotify, Reddit e milhares de outras gigantes já fizeram a mesma escolha.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" data-grupo="B">
+        <div class="section-content">
+          🧰 Intalação
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <br><br>
+            <div class="elementos-lado-a-lado" style="display: flex; gap: 15px;">
+              <p style="font-size: 18px;">
+              <br>Para instalar, siga os passos abaixo:<br>
+              <br>1. Acesse o site oficial do PostgreSQL: <br><a target="_blank" href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a><br>
+              <br>2. Selecione o sistema operacional desejado (Windows, macOS, Linux, etc.).<br>
+              <br>3. Siga as instruções específicas para o seu sistema operacional para baixar e instalar o PostgreSQL.
+            </p>
+              <img class="big-image" src="./downlaodPostegre.png" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="section" data-grupo="C">
+        <div class="section-content">
+          🔎 Como Saber se está intalado?
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <p style="font-size: 18px;">
+              <br>Para saber se o PostgreSQL está instalado corretamente, siga estes passos:<br>
+              <br>1. Abra o terminal ou prompt de comando do seu sistema operacional.<br>
+              <br>2. Digite o comando <code><em>psql --version</em></code> e pressione Enter<br>
+              <br>3. No linux pode usar <code><em>sudo systemctl status postgresql</em></code>
+              <br><br>
+            </p>
+            <div class="elementos-lado-a-lado" style="display: flex; gap: 10px;">
+              <img src="./exemploTerminal1.png" alt="Imagem 1" style="width: 90%; height: auto;">
+              <img src="./exemploTerminal2.png" alt="Imagem 2" style="width: 100%; height: auto;">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="section" data-grupo="D">
+        <div class="section-content">
+          📐 Configurando o Elefante no Quarto
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra D -->
+             <p style="font-size: 18px;">
+              <br>Para configurar a senha do usuário "postgres", siga os passos abaixo:<br>
+              <br>1. Acesse o prompt do PostgreSQL com o comando: <code><em>psql -U postgres</em></code><br>
+              <br>3. No prompt do PostgreSQL, digite o comando para alterar a senha: <code><em>ALTER USER postgres PASSWORD 'nova_senha';</em></code> Substitua 'nova_senha' pela senha desejada e pressione Enter.
+              <br><br>
+              </p>
+             
+            <div class="elementos-lado-a-lado" style="display: flex; gap: 10px; align-items: flex-start; max-width: 100%; flex-wrap: wrap;">
+            <img src="./exemploTerminal3.png"
+                alt="Imagem 1"
+                style="max-width: 100%; height: auto; object-fit: contain;">
+            <img src="./exemploTerminal4.png"
+                alt="Imagem 2"
+                style="max-width: 105%; height: auto; object-fit: contain;">
+          </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="section" data-grupo="E">
+        <div class="section-content">
+          📈 Criando Novos Elefantes
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra E -->
+
+            <p style="font-size: 18px;">
+              <br>É normal criar novos usuários para diferentes aplicações ou serviços que irão se conectar ao banco de dados PostgreSQL.<br>
+              <br>1. Acesse o prompt do PostgreSQL com o comando: <code><em>psql -U postgres</em></code><br> 
+              <br>2. No prompt do PostgreSQL, digite o comando para criar um novo usuário: <code><em>CREATE USER nome_do_usuario WITH PASSWORD 'senha_do_usuario'</em></code>.
+              <br><br>
+            </p>
+             
+            <div class="elementos-lado-a-lado" style="display: flex; gap: 10px; align-items: flex-start; max-width: 100%; flex-wrap: wrap;">
+            <img src="./exemploTerminal3.png"
+                alt="Imagem 1"
+                style="max-width: 50%; height: auto; object-fit: contain;">
+            <img src="./imagemTerminal5.png"
+                alt="Imagem 2"
+                style="max-width: 50%; height: auto; object-fit: contain;">
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" data-grupo="F">
+        <div class="section-content">
+          ✅ Criando um Banco de Dados
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra F -->
+             <p style="font-size: 18px;">
+              <br> Para criar um banco de dados no PostgreSQL, siga os passos abaixo:<br>
+              <br>1. Acesse o prompt do PostgreSQL com o comando: <code><em>psql -U postgres</em></code><br>
+              <br>2. Digite o comando para criar um novo banco de dados: <code><em>CREATE DATABASE nome_do_banco</em></code><br>
+              <br>3. Para atribuir um usuário ao banco de dados, use o comando: <code><em>GRANT ALL PRIVILEGES ON DATABASE nome_do_banco TO nome_do_usuario</em></code>.
+              <br><br>
+            </p>
+              <div class="elementos-lado-a-lado" style="display: flex; gap: 10px; align-items: flex-start; max-width: 100%; flex-wrap: wrap;">
+                <img src="./exemploTerminal8.png"
+                    alt="Imagem 1"
+                    style="max-width: 100%; height: auto; object-fit: contain;">
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="G">
+        <div class="section-content">
+          🎓 Fim do Trabalho
+          <br>
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <img src="https://i1.sndcdn.com/artworks-000120577653-v6pkko-t500x500.jpg" alt="Fim do Trabalho" style="width: 40%; height: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Importar estilos específicos */
+@import url('./player.css');
+@import url('./grass.css');
+@import url('./stars.css');
+
+html, body {
+  height: 100vh;
+  overflow: hidden;
+  font-family: sans-serif;
+  background: linear-gradient(to top, #87CEEB 0%, #b0e0ff 50%, #e0f7ff 100%);
+}
+
+/* Texto */
+p {
+  text-align: justify;
+}
+.section.expandida-temp {
+  display: block !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+
+/* Câmera / mundo */
+.camera {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Camadas Parallax */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 5000px;
+  pointer-events: none;
+}
+.background {
+  background-size: cover;
+  z-index: 0;
+  background-image: none !important;
+  background: linear-gradient(to bottom, #b3e5fc, #81d4fa, #4fc3f7);
+}
+.middleground {
+  background-size: cover;
+  z-index: 1;
+}
+
+/* Mundo do jogo */
+.game-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100vh;
+  width: 5000px;
+  z-index: 2;
+}
+
+
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.platform[data-grupo="GRASS"] {
+  z-index: 20;
+  position: absolute;
+}
+
+/* Nuvens */
+.cloud {
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.4;
+}
+
+/* Pássaros */
+.bird {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.8;
+}
+
+.big-image {
+  width: 180%;
+  height: 100% + 70;
+}
+
+/* Seções de texto */
+.section {
+  width: 800px;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  border-right: 2px solid white;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  transition: width 0.7s cubic-bezier(.4,2,.6,1), box-shadow 0.5s;
+  background: #3f51b594;
+}
+.section.expandida {
+  width: 1200px;
+  box-shadow: 0 0 40px 10px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+.section-content {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.7s;
+}
+.conteudo-invisivil-até-tamanho-duplicar {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s;
+}
+.section.expandida .conteudo-invisivil-até-tamanho-duplicar {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.conteudo-invisivil-até-tamanho-duplicar p {
+  text-align: left;
+}
+
+/* Logo quadrada */
+.logo-square {
+  background: white;
+  border-radius: 12%;
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  margin-top: 20px;
+  display: inline-block;
+}
+.logo-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ================ PLATAFORMAS ================ */
+.platform {
+  position: absolute;
+  z-index: 10;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.platform:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.platform[data-grupo="GRASS"] {
+  z-index: 20;
+  position: absolute;
+}
+
+.platform .dirt-layer {
+  width: 100%;
+  height: 33.33%;
+  position: relative;
+}
+
+.platform .dirt-layer.top {
+  background: linear-gradient(to bottom, #a1887f, #967d7a);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.platform .dirt-layer.middle {
+  background: linear-gradient(to bottom, #8d6e63, #795548);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.platform .dirt-layer.bottom {
+  background: linear-gradient(to bottom, #5d4037, #4e342e);
+}
+
+.platform.tremor {
+  animation: tremor 0.5s linear;
+}
+
+.platform.caindo {
+  animation: cair 0.7s linear forwards;
+}
+
+@keyframes tremor {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes cair {
+  to {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+
+/* ================ ESTRELAS ================ */
+.estrela {
+  position: absolute;
+  font-size: 40px;
+  z-index: 20;
+  pointer-events: none;
+  animation: girarEstrela 1s linear infinite;
+}
+
+@keyframes girarEstrela {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Plataforma invisível no chão (para colisão) */
+.plataforma-invisivel {
+  position: absolute;
+  left: 0;
+  width: 5000px;
+  height: 30px;
+  bottom: 0;
+  z-index: 20;
+}
